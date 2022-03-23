@@ -76,6 +76,7 @@
                 <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
+                    <!-- svelte-ignore a11y-autofocus -->
                     <input
                     type="text"
                     class="form-control"
@@ -109,6 +110,7 @@
                     <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
                     <label class="form-check-label" for="terms-conditions">
                         I agree to
+                        <!-- svelte-ignore a11y-invalid-attribute -->
                         <a href="javascript:void(0);">privacy policy & terms</a>
                     </label>
                     </div>
