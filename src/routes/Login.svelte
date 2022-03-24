@@ -1,6 +1,10 @@
+<script>
+  import {link} from "svelte-spa-router";
+</script>
+<!-- svelte-ignore component-name-lowercase -->
 <svelte:head>
     <title>Login</title>
-    <link rel="stylesheet" href="/assets/vendor/css/pages/page-auth.css">
+    <link rel="stylesheet" href="/assets/vendor/css/pages/page-auth.css" />
 </svelte:head>
 <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
@@ -83,7 +87,7 @@
 
             <p class="text-center">
               <span>New on our platform?</span>
-              <a href="auth-register-basic.html">
+              <a use:link href="/registro">
                 <span>Create an account</span>
               </a>
             </p>

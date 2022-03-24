@@ -1,44 +1,11 @@
 <script>
+	import { onMount } from "svelte";
     import Layout from "../components/Layout.svelte";
 	import Table from "../components/Table.svelte";
+	import { PostJob, GetJobs, GetJobsByCategoryId } from "../utilities/Job";
 
-	let jobs = [
-			{
-			"location": "Jinsha",
-			"position": "Staff Accountant IV",
-			"company": "Youfeed"
-		},
-		{
-			"location": "Thanh Nê",
-			"position": "GIS Technical Architect",
-			"company": "Zoovu"
-		},
-		{
-			"location": "Rawaglagah",
-			"position": "Automation Specialist II",
-			"company": "Digitube"
-		},
-		{
-			"location": "Paris La Défense",
-			"position": "Marketing Manager",
-			"company": "Voonyx"
-		},
-		{
-			"location": "Salas",
-			"position": "Staff Accountant II",
-			"company": "Zoomzone"
-		},
-		{
-			"location": "Guashe",
-			"position": "Financial Advisor",
-			"company": "Viva"
-		},
-		{
-			"location": "Ludbreg",
-			"position": "Information Systems Manager",
-			"company": "Livepath"
-		}
-	]
+	onMount(() =>{
+	})
 
 </script>
 <Layout>
@@ -54,7 +21,7 @@
 						</div>
 					</div>
 					<div class="row col-md-2 mx-2">
-						<button type="button" class="btn btn-success button-search">Post a Job</button>
+						<button type="button" class="btn btn-success button-search"><i class="fa-solid fa-bullhorn"></i> Post a Job</button>
 					</div>
 				</div>
 			</div>
@@ -62,9 +29,9 @@
 
 		<h2 class="mb-4 doc-page-title">Recents Jobs</h2>
 
-		<Table
+		<!-- <Table
 			category = "Desing"
 			jobs = {jobs}
-		/>
+		/> -->
 	</div>
 </Layout>
