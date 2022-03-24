@@ -187,7 +187,7 @@
 						<div class="dropdown-divider"></div>
 					</li> -->
 						<li>
-							<a class="dropdown-item" use:link href="/login">
+							<a class="dropdown-item" use:link href="/login" on:click={() => localStorage.removeItem('currentUser')}>
 								<i class="bx bx-power-off me-2"></i>
 								<span class="align-middle">Log Out</span>
 							</a>

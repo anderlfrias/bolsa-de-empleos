@@ -22,6 +22,14 @@ const GetUserByName = (name = "") =>{
     return allUsers.filter(x => x.name === name);
 }
 
+const GetUserByEmail = (email = "") =>{
+    let allUsers = GetUsers();
+
+    return allUsers.filter(x => x.email === email);
+}
+
 export{
-    PostUser
+    PostUser,
+    GetUserByName,
+    GetUserByEmail
 }

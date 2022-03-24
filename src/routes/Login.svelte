@@ -1,5 +1,49 @@
 <script>
-  import {link} from "svelte-spa-router";
+import { onMount } from "svelte";
+
+  import {link, push} from "svelte-spa-router";
+  import {GetUserByName, GetUserByEmail} from '../utilities/User';
+
+  let user = '';
+  let password = '';
+  let currentUser = {};
+
+  const confirmCredentials = () =>{
+    console.log(user);
+    let res = GetUserByEmail(user);
+
+    if(res.length == 0){
+      res = GetUserByName(user);
+    }
+
+    if(res.length == 0){
+      return false;
+    }
+
+    console.log(res);
+
+    if (res[0].password === password){
+      currentUser = res[0];
+      return true;
+    }
+
+    return false;
+  }
+
+  const login = () =>{
+    if(confirmCredentials()){
+      console.log(currentUser);
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      push('/')
+    }
+  }
+
+  onMount(()=>{
+    console.log(GetUserByName('rson'));
+    console.log(GetUserByEmail('juan@email.com'));
+
+    console.log(confirmCredentials());
+  })
 </script>
 <!-- svelte-ignore component-name-lowercase -->
 <svelte:head>
@@ -56,11 +100,11 @@
             <h4 class="mb-2">Welcome! 👋</h4>
             <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-            <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+            <form on:submit|preventDefault={login} id="formAuthentication" class="mb-3" action="index.html" method="POST">
               <div class="mb-3">
                 <label for="email" class="form-label">Email or Username</label>
                 <!-- svelte-ignore a11y-autofocus -->
-                <input type="text" class="form-control" id="email" name="email-username" placeholder="Enter your email or username" autofocus>
+                <input type="text" class="form-control" id="email" name="email-username" bind:value={user} placeholder="Enter your email or username" autofocus>
               </div>
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
@@ -70,7 +114,7 @@
                   </a>
                 </div>
                 <div class="input-group input-group-merge">
-                  <input type="password" id="password" class="form-control" name="password" placeholder="············" aria-describedby="password">
+                  <input type="password" id="password" class="form-control" name="password" bind:value={password} placeholder="············" aria-describedby="password">
                   <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                 </div>
               </div>

@@ -4,7 +4,7 @@
 
     let user = {};
 
-    const login = () =>{
+    const registrar = () =>{
         console.log(user);
         PostUser(user);
         push('/login');
@@ -85,7 +85,7 @@
                 <h4 class="mb-2">Adventure starts here 🚀</h4>
                 <p class="mb-4">Make your app management easy and fun!</p>
 
-                <form on:submit|preventDefault={login} id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                <form on:submit|preventDefault={registrar} id="formAuthentication" class="mb-3" action="index.html" method="POST">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <!-- svelte-ignore a11y-autofocus -->
