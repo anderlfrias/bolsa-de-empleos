@@ -6,10 +6,10 @@
 
 	onMount(() =>{
 	})
-
 </script>
 <Layout>
 	<div class="container-fluid flex-grow-1 container-p-y">
+		<!-- <h4 class="fw-bold py-3"><span class="text-muted fw-light">Home/</span> Horizontal Layouts</h4> -->
 		<div class="col-md-12 mb-4">
 			<div class="card p-3">
 				<div class="row justify-content-between">
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 
-		<h2 class="mb-4 doc-page-title">Recents Jobs</h2>
+		<h4 class="mb-4 doc-page-title">Recents Jobs</h4>
 
 		<!-- <Table
 			category = "Desing"
