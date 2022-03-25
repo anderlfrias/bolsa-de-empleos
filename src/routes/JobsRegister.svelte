@@ -6,10 +6,28 @@
     let job = {};
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+
     const saveJob = () =>{
         console.log(job);
         job.ownerId = currentUser.id;
         PostJob(job);
+        job = {};
+        Toast.fire({
+            icon: 'success',
+            title: 'Posted in successfully'
+        })
     }
 </script>
 <Layout>
@@ -27,7 +45,7 @@
                         <div class="col-sm-10">
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                            <input type="text" class="form-control" id="basic-icon-default-fullname" bind:value={job.position} placeholder="ex. Web Developer, tester, ..." aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" />
+                            <input type="text" class="form-control" id="basic-icon-default-fullname" bind:value={job.position} required placeholder="ex. Web Developer, tester, ..." aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" />
                         </div>
                         </div>
                     </div>
@@ -36,7 +54,7 @@
                         <div class="col-sm-10">
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                            <input type="text" id="basic-icon-default-company" class="form-control" bind:value={job.company} placeholder="ex. Claro RD, Casa de Campo, ..." aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" />
+                            <input type="text" id="basic-icon-default-company" class="form-control" bind:value={job.company} required placeholder="ex. Claro RD, Casa de Campo, ..." aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" />
                         </div>
                         </div>
                     </div>
@@ -56,7 +74,7 @@
                         <div class="col-sm-10">
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-phone2" class="input-group-text"><i class='bx bx-current-location'></i></span>
-                            <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" bind:value={job.location} placeholder="ex. Santo Domingo, Santiago ..." aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" />
+                            <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" bind:value={job.location} required placeholder="ex. Santo Domingo, Santiago ..." aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" />
                         </div>
                         </div>
                     </div>
@@ -65,7 +83,7 @@
                         <div class="col-sm-10">
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-category2" class="input-group-text"><i class='bx bxs-category-alt' ></i></span>
-                            <input type="text" id="basic-icon-default-category" class="form-control" bind:value={job.category} placeholder="ex. Desing, Programming ..." aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" />
+                            <input type="text" id="basic-icon-default-category" class="form-control" bind:value={job.category} required placeholder="ex. Desing, Programming ..." aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2" />
                         </div>
                         </div>
                     </div>
@@ -74,7 +92,7 @@
                         <div class="col-sm-10">
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-message2" class="input-group-text"><i class="bx bx-comment"></i></span>
-                            <textarea id="basic-icon-default-message" class="form-control" bind:value={job.description} placeholder="Job overview" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"></textarea>
+                            <textarea id="basic-icon-default-message" class="form-control" bind:value={job.description} required placeholder="Job overview" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"></textarea>
                         </div>
                         </div>
                     </div>

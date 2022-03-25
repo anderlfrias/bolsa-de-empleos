@@ -12,7 +12,6 @@
 		console.log(currentUser);
 		console.log(jobs);
 
-
 		if(currentUser === null){
 			push('/login');
 		}
@@ -43,9 +42,9 @@
 
 		<h4 class="mb-4 doc-page-title">Recents Jobs</h4>
 
-		<!-- <Table
+		<Table
 			category = "Desing"
 			jobs = {jobs}
-		/> -->
+		/>
 	</div>
 </Layout>

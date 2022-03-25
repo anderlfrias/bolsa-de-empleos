@@ -35,6 +35,12 @@ import { onMount } from "svelte";
       console.log(currentUser);
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       push('/')
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Incorrect credentials!',
+        text: 'Please check your user and password, and try again!'
+      })
     }
   }
 
@@ -104,7 +110,7 @@ import { onMount } from "svelte";
               <div class="mb-3">
                 <label for="email" class="form-label">Email or Username</label>
                 <!-- svelte-ignore a11y-autofocus -->
-                <input type="text" class="form-control" id="email" name="email-username" bind:value={user} placeholder="Enter your email or username" autofocus>
+                <input type="text" class="form-control" id="email" name="email-username" bind:value={user} placeholder="Enter your email or username" autofocus required>
               </div>
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
@@ -114,7 +120,7 @@ import { onMount } from "svelte";
                   </a>
                 </div>
                 <div class="input-group input-group-merge">
-                  <input type="password" id="password" class="form-control" name="password" bind:value={password} placeholder="············" aria-describedby="password">
+                  <input type="password" id="password" class="form-control" name="password" bind:value={password} placeholder="············" aria-describedby="password" required>
                   <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                 </div>
               </div>

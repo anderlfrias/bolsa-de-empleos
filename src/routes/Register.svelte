@@ -1,6 +1,6 @@
 <script>
     import {PostUser} from "../utilities/User";
-    import {push} from "svelte-spa-router";
+    import {link, push} from "svelte-spa-router";
 
     let user = {};
 
@@ -10,6 +10,7 @@
         push('/login');
     }
 </script>
+<!-- svelte-ignore component-name-lowercase -->
 <svelte:head>
     <title>Register</title>
     <link rel="stylesheet" href="/assets/vendor/css/pages/page-auth.css">
@@ -146,7 +147,7 @@
 
                 <p class="text-center">
                 <span>Already have an account?</span>
-                <a href="auth-login-basic.html">
+                <a use:link href="/login">
                     <span>Sign in instead</span>
                 </a>
                 </p>
