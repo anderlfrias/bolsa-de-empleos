@@ -19,11 +19,19 @@ const GetUsers = () =>{
 const GetUserByName = (name = "") =>{
     let allUsers = GetUsers();
 
+    if (allUsers === null){
+        return [];
+    }
+
     return allUsers.filter(x => x.name === name);
 }
 
 const GetUserByEmail = (email = "") =>{
     let allUsers = GetUsers();
+
+    if (allUsers === null){
+        return [];
+    }
 
     return allUsers.filter(x => x.email === email);
 }

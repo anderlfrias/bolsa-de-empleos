@@ -1,6 +1,8 @@
 <script>
     import {link, push} from "svelte-spa-router";
 	let date = new Date().getFullYear();
+
+	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 </script>
 <div class="layout-wrapper layout-content-navbar">
 	<div class="layout-container">
@@ -133,7 +135,7 @@
 						data-show-count="true"
 						aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
 					>Star</a> -->
-					<strong>Anderson Frias Acosta</strong>
+					<strong>{currentUser.name}</strong>
 				</li>
 
 				<!-- User -->

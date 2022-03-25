@@ -3,10 +3,20 @@
     import Layout from "../components/Layout.svelte";
 	import Table from "../components/Table.svelte";
 	import { PostJob, GetJobs, GetJobsByCategoryId } from "../utilities/Job";
+	import {push} from "svelte-spa-router";
 
+	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 	onMount(() =>{
+		console.log(currentUser);
+
+		if(currentUser === null){
+			push('/login');
+		}
 	})
 </script>
+<svelte:head>
+    <title>Home</title>
+</svelte:head>
 <Layout>
 	<div class="container-fluid flex-grow-1 container-p-y">
 		<!-- <h4 class="fw-bold py-3"><span class="text-muted fw-light">Home/</span> Horizontal Layouts</h4> -->

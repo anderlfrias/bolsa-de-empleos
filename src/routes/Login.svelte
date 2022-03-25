@@ -39,10 +39,10 @@ import { onMount } from "svelte";
   }
 
   onMount(()=>{
-    console.log(GetUserByName('rson'));
-    console.log(GetUserByEmail('juan@email.com'));
+    // console.log(GetUserByName('rson'));
+    // console.log(GetUserByEmail('juan@email.com'));
 
-    console.log(confirmCredentials());
+    // console.log(confirmCredentials());
   })
 </script>
 <!-- svelte-ignore component-name-lowercase -->

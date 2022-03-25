@@ -11,7 +11,7 @@
     }
 </script>
 <svelte:head>
-    <title>Registro</title>
+    <title>Register</title>
     <link rel="stylesheet" href="/assets/vendor/css/pages/page-auth.css">
 </svelte:head>
 <div class="container-xxl">
@@ -104,6 +104,16 @@
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" required bind:value={user.email}/>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlSelect1" class="form-label">What are you looking for?</label>
+                        <select class="form-select" id="exampleFormControlSelect1" bind:value={user.type} aria-label="Default select example">
+                            <option selected="">Open this select menu</option>
+                            <option value="employer">Staff</option>
+                            <option value="employee">Jobs</option>
+                        </select>
+                    </div>
+
                     <div class="mb-3 form-password-toggle">
                         <label class="form-label" for="password">Password</label>
                         <div class="input-group input-group-merge">
