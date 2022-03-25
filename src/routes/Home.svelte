@@ -6,8 +6,12 @@
 	import {push} from "svelte-spa-router";
 
 	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+	let jobs = JSON.parse(localStorage.getItem('jobs'));
+
 	onMount(() =>{
 		console.log(currentUser);
+		console.log(jobs);
+
 
 		if(currentUser === null){
 			push('/login');
@@ -31,7 +35,7 @@
 						</div>
 					</div>
 					<div class="row col-md-2 mx-2">
-						<button type="button" class="btn btn-success button-search"><i class="fa-solid fa-bullhorn"></i> Post a Job</button>
+						<button on:click={() => push('/jobs/new-job')} type="button" class="btn btn-success button-search"><i class="fa-solid fa-bullhorn"></i> Post a Job</button>
 					</div>
 				</div>
 			</div>

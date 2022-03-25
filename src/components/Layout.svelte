@@ -86,9 +86,9 @@
 				</li>
 
 				<li class="menu-item">
-					<a href="index.html" class="menu-link">
-					<i class='menu-icon tf-icons bx bxs-briefcase'></i>
-					<div data-i18n="Analytics">New Jobs</div>
+					<a use:link href="/jobs/new-job" class="menu-link">
+						<i class='menu-icon tf-icons bx bxs-briefcase'></i>
+						<div data-i18n="Analytics">New Jobs</div>
 					</a>
 				</li>
 			</ul>
@@ -111,17 +111,17 @@
 
 			<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 				<!-- Search -->
-				<div class="navbar-nav align-items-center">
-				<div class="nav-item d-flex align-items-center">
-					<i class="bx bx-search fs-4 lh-0"></i>
-					<input
-					type="text"
-					class="form-control border-0 shadow-none"
-					placeholder="Search..."
-					aria-label="Search..."
-					/>
-				</div>
-				</div>
+				<!-- <div class="navbar-nav align-items-center">
+					<div class="nav-item d-flex align-items-center">
+						<i class="bx bx-search fs-4 lh-0"></i>
+						<input
+						type="text"
+						class="form-control border-0 shadow-none"
+						placeholder="Search..."
+						aria-label="Search..."
+						/>
+					</div>
+				</div> -->
 				<!-- /Search -->
 
 				<ul class="navbar-nav flex-row align-items-center ms-auto">
