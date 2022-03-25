@@ -1,5 +1,12 @@
 <script>
+import { onMount } from "svelte";
+
+
     export let jobs = [];
+
+    onMount(()=>{
+        // console.log(jobs);
+    })
 </script>
 <main>
         <!-- content here -->
@@ -17,14 +24,17 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        {#each jobs as item}
-                            <tr>
-                                <td>{item.location}</td>
-                                <td>{item.position}</td>
-                                <td>{item.company}</td>
-                                <td>{item.category}</td>
-                            </tr>
-                        {/each}
+
+                        {#if jobs}
+                            {#each jobs as item}
+                                <tr>
+                                    <td>{item.location}</td>
+                                    <td>{item.position}</td>
+                                    <td>{item.company}</td>
+                                    <td>{item.category}</td>
+                                </tr>
+                            {/each}
+                        {/if}
                     </tbody>
                 </table>
             </div>

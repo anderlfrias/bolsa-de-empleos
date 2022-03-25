@@ -5,7 +5,7 @@
     let user = {};
 
     const registrar = () =>{
-        console.log(user);
+        // console.log(user);
         PostUser(user);
         push('/login');
     }
@@ -108,7 +108,7 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlSelect1" class="form-label">What are you looking for?</label>
-                        <select class="form-select" id="exampleFormControlSelect1" bind:value={user.type} aria-label="Default select example">
+                        <select class="form-select" id="exampleFormControlSelect1" bind:value={user.type} aria-label="Default select example" required>
                             <option selected="">Open this select menu</option>
                             <option value="employer">Staff</option>
                             <option value="employee">Jobs</option>

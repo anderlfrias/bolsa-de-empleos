@@ -9,8 +9,8 @@
 	let jobs = JSON.parse(localStorage.getItem('jobs'));
 
 	onMount(() =>{
-		console.log(currentUser);
-		console.log(jobs);
+		// console.log(currentUser);
+		// console.log(jobs);
 
 		if(currentUser === null){
 			push('/login');

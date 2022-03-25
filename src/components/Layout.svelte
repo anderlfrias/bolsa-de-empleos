@@ -1,8 +1,14 @@
 <script>
+import { onMount } from "svelte";
+
     import {link, push} from "svelte-spa-router";
 	let date = new Date().getFullYear();
 
-	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+	let currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+
+	onMount(() =>{
+		// console.log(currentUser);
+	})
 </script>
 <div class="layout-wrapper layout-content-navbar">
 	<div class="layout-container">
@@ -135,7 +141,7 @@
 						data-show-count="true"
 						aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
 					>Star</a> -->
-					<strong>{currentUser.name}</strong>
+					<strong>{currentUser.name || ''}</strong>
 				</li>
 
 				<!-- User -->

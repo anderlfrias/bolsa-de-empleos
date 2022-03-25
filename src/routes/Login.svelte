@@ -9,7 +9,7 @@ import { onMount } from "svelte";
   let currentUser = {};
 
   const confirmCredentials = () =>{
-    console.log(user);
+    // console.log(user);
     let res = GetUserByEmail(user);
 
     if(res.length == 0){
@@ -20,7 +20,7 @@ import { onMount } from "svelte";
       return false;
     }
 
-    console.log(res);
+    // console.log(res);
 
     if (res[0].password === password){
       currentUser = res[0];
@@ -32,7 +32,7 @@ import { onMount } from "svelte";
 
   const login = () =>{
     if(confirmCredentials()){
-      console.log(currentUser);
+      // console.log(currentUser);
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       push('/')
     } else {

@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
     import Layout from "../components/Layout.svelte";
     import { PostJob } from "../utilities/Job";
+	import {push} from "svelte-spa-router";
 
     let job = {};
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -20,7 +21,7 @@
 
 
     const saveJob = () =>{
-        console.log(job);
+        // console.log(job);
         job.ownerId = currentUser.id;
         PostJob(job);
         job = {};
@@ -29,6 +30,13 @@
             title: 'Posted in successfully'
         })
     }
+
+    onMount(()=>{
+        // console.log(currentUser);
+        if(currentUser === null){
+			push('/login');
+		}
+    })
 </script>
 <Layout>
     <div class="container-fluid flex-grow-1 container-p-y">
